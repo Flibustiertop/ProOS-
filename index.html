@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ProOS - Профессиональная сборка Windows 10</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ffcc;
+            --dark: #0a1a2f;
+            --accent: #003366;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--dark);
+            color: white;
+            margin: 0;
+        }
+        .speed-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle, 
+                rgba(0,255,204,0.1) 10%, 
+                rgba(0,51,102,0.1) 70%);
+            animation: speedEffect 8s linear infinite;
+        }
+        @keyframes speedEffect {
+            0% { transform: rotate(0deg) scale(0.8); }
+            100% { transform: rotate(360deg) scale(1.2); }
+        }
+        .benchmark-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        .benchmark-card:hover {
+            transform: translateX(10px);
+        }
+        .benchmark-header {
+            font-size: 1.5em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .benchmark-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
+        }
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 150px 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .game-performance {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark), var(--accent));
+        }
+        .performance-table {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .table-dark {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+            border-color: var(--primary);
+        }
+        .table tbody tr:hover {
+            background: rgba(0, 255, 204, 0.1);
+        }
+        .creator-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .creator-button a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .creator-button a:hover {
+            transform: scale(1.1);
+        }
+        .footer {
+            background: var(--dark);
+            padding: 30px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="speed-animation"></div>
+    <section class="hero">
+        <div class="container hero-content" data-aos="fade-up">
+            <h1 class="display-3">ProOS 21H2</h1>
+            <p class="lead">Профессиональная сборка для гейминга и работы</p>
+            <a href="https://drive.usercontent.google.com/download?id=1t9hjtKSjsBa648Co-t_5ybcToftgNyjs&export=download&authuser=0" 
+               target="_blank" 
+               class="btn btn-lg btn-primary">
+                Скачать бесплатно
+            </a>
+        </div>
+    </section>
+    <section class="benchmarks">
+        <div class="container">
+            <h2 class="text-center mb-4">Производительность</h2>
+            <div class="benchmark-card" data-aos="fade-right">
+                <div class="benchmark-header">3DMark Time Spy</div>
+                <div class="benchmark-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">11,200</div>
+                        <div>Extreme Preset</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">+42%</div>
+                        <div>Прирост</div>
+                    </div>
+                </div>
+            </div>
+            <div class="benchmark-card" data-aos="fade-left">
+                <div class="benchmark-header">PCMark 10</div>
+                <div class="benchmark-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">8,900</div>
+                        <div>Overall Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">+35%</div>
+                        <div>Прирост</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="game-performance">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Производительность в играх</h2>
+            <div class="performance-table">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Игра</th>
+                            <th>Режим</th>
+                            <th>ProOS</th>
+                            <th>Windows 10</th>
+                            <th>Прирост</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-aos="fade-up" data-aos-delay="100">
+                            <td>Standoff 2</td>
+                            <td>Ultra Settings</td>
+                            <td>144 FPS</td>
+                            <td>98 FPS</td>
+                            <td>+47%</td>
+                        </tr>
+                        <tr data-aos="fade-up" data-aos-delay="200">
+                            <td>CS2</td>
+                            <td>Competitive</td>
+                            <td>347 FPS</td>
+                            <td>267 FPS</td>
+                            <td>+30%</td>
+                        </tr>
+                        <tr data-aos="fade-up" data-aos-delay="300">
+                            <td>GTA V</td>
+                            <td>Max Settings</td>
+                            <td>88 FPS</td>
+                            <td>62 FPS</td>
+                            <td>+42%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="image-gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img 
+                        src="https://s.iimg.su/s/12/Vp4yNYTkPBHZM7WKnVG8BY7yNMhiIjx8bzyyIyVp.jpg" 
+                        alt="Системная оптимизация" 
+                        class="gallery-img"
+                    >
+                </div>
+                <div class="col-md-4">
+                    <img 
+                        src="https://s.iimg.su/s/12/9sFL8PptqCXK2LOsztrwWf6E1dUcJ4i5vH9uZ1X3.jpg" 
+                        alt="Тестирование производительности" 
+                        class="gallery-img"
+                    >
+                </div>
+                <div class="col-md-4">
+                    <img 
+                        src="https://s.iimg.su/s/12/A6pt1qZqxbOqT1OBv8lTEEUWpWvu7ZOe4IBB59HH.jpg" 
+                        alt="Интерфейс системы" 
+                        class="gallery-img"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 ProOS (прошка). Все права защищены.</p>
+        </div>
+    </footer>
+    <div class="creator-button">
+        <a href="https://t.me/prooptmz" target="_blank">
+            Канал создателя
+        </a>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
